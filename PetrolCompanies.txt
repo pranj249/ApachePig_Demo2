@@ -1,0 +1,60 @@
+1))hw = load 'pig_data.txt' using PigStorage(',') as (district:chararray,dist:chararray,buyrate:double,sellrate:double,volin:double,volout:double,year:int);
+
+2)hw1 = group hw by dist; 
+
+3)hw2 = foreach hw1 generate group,SUM(hw.$5);
+
+5.1 
+dist comp, vol sold
+(shell,69266.0)
+(Bharat,83662.0)
+(reliance,76558.0)
+(hindustan,71767.0)
+
+
+Queries
+hw1 = group hw by district; 
+hw2 = foreach hw1 generate group, SUM(hw.$5) as sum;
+hw3 = order hw2 by hw2.sum desc;
+hw4 = limit hw3 10;
+
+5.2
+district vol sold
+(S8W 0P4,899.0)
+(T1A 9W4,899.0)
+(V8U 2T6,898.0)
+(O8A 6Z5,897.0)
+(O9P 9S3,897.0)
+(F6W 6H3,896.0)
+(E6O 9P1,895.0)
+(J4M 4G3,895.0)
+(N5Q 8E5,895.0)
+(M6S 1P4,895.0)
+
+Queries
+
+
+5.3
+year, vol in
+(1935,1100.0)
+(1849,1099.0)
+(1795,1099.0)
+(1815,1099.0)
+(1903,1098.0)
+(1686,1098.0)
+(1782,1098.0)
+(1884,1097.0)
+(1628,1097.0)
+(1912,1097.0)
+
+
+Queries
+hw1 = group hw by district; 
+hw2 = foreach hw1 generate group, SUM(hw.$5) as sum;
+hw3 = order hw2 by hw2.sum asc;
+hw4 = limit hw3 1;
+
+5.4
+district least sold
+(F4D 6K2,602.0)
+
