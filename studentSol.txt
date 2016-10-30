@@ -1,0 +1,55 @@
+1 . Number of students less than 5 -- 188
+hw = load 'student.txt' using PigStorage(',') as (name:chararray,col:chararray,dob:chararray,stream:chararray,grade:float,state:chararray,city:chararray);
+hw1 = filter hw by grade < 5.0;
+hw2 = foreach (group hw1 all) generate COUNT(hw1.name);
+
+
+2. Names of students from Alaska
+
+({(John),(Samuel),(Henry),(Joseph),(William),(William),(Daniel),(Michael O),(John W),(Joseph),(Jacob),(Richard),(Michael),(Frederick),(Alexander),(George),(Christian),(Peter),(Matthew),(Zahm),(Wiley),(Waters),(Voight),(Sherwood),(Sherer),(Rotharmel),(Quinn),(Nourse),(Miller),(McGinnis),(Long),(Kendig),(Keubler),(Jordan),(Houser),(Huber),(Halbach),(Hartman),(Gumpf),(Fisher),(Ellmaker),(Denyes),(Diller),(Carson),(Brunner),(Bowman),(Albright),(STILLWEL),(JOHN),(JOHN),(WILLIAM),(SARAH),(GEORGE),(BARBARA),(JACOB),(WEIRS),(STEPHENS),(ROBTS&CMRN),(POLK),(KEYSER),(IMMILE),(GIBSON),(DISHONG),(COWEN),(YOUNG),(LOGAN),(DAVIS),(BELL)})
+
+3. number of goverenment schools in Albama -- 2198
+
+4. Number of students in oregon and purseing BE -- 42
+((JOHN))
+((John))
+((P.K.))
+((BLOOM))
+((Donas))
+((Edwin))
+((Frick))
+((JACOB))
+((Jacob))
+((Kitch))
+((Peter))
+((Royal))
+((SHOCK))
+((WHITE))
+((Wayne))
+((Bowman))
+((Cordes))
+((Daniel))
+((Danner))
+((Dennis))
+((George))
+((Hubley))
+((IMMILE))
+((McNair))
+((Philip))
+((Buckius))
+((Grimler))
+((Lambert))
+((Naumann))
+((RICHARD))
+((Shindle))
+((Albright))
+((Ehrisman))
+((George B))
+((Heinitsh))
+((Reformed))
+((WAGGONER))
+((Charles H))
+((Frederick))
+((PATTERSON))
+((Himmelsbach))
+
